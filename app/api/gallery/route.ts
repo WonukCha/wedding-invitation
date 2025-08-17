@@ -21,23 +21,24 @@ export async function GET() {
     // config 파일에 설정된 순서로 이미지 정렬
     const configImages = weddingConfig.gallery.images;
     const orderedImages: string[] = [];
-    
-    // config에 설정된 순서대로 존재하는 이미지만 추가
+
+    // 파일명 대소문자 이슈 대응을 위해 매핑 생성 (ex: image_10.jpg vs image_10.JPG)
+    const lowerToOriginal = new Map<string, string>(
+      imageFiles.map((f: string) => [f.toLowerCase(), f])
+    );
+
+    // config에 설정된 순서대로, 실제 존재하는 파일만 추가 (대소문자 무시)
     for (const configImagePath of configImages) {
       const filename = path.basename(configImagePath);
-      if (imageFiles.includes(filename)) {
-        orderedImages.push(configImagePath);
+      const match = lowerToOriginal.get(filename.toLowerCase());
+      if (match) {
+        // 실제 존재하는 원본 파일명으로 URL 구성
+        orderedImages.push(`/images/gallery/${match}`);
       }
     }
-    
-    // config에 없지만 폴더에 존재하는 이미지들을 마지막에 추가 (파일명 순으로 정렬)
-    const remainingFiles = imageFiles
-      .filter(file => !configImages.some((configPath: string) => path.basename(configPath) === file))
-      .sort((a, b) => a.localeCompare(b))
-      .map(file => `/images/gallery/${file}`);
-    
-    const finalImages = [...orderedImages, ...remainingFiles];
-    
+    // config에 명시된 이미지들만 사용 (폴더에 실제 존재하는 것만)
+    const finalImages = orderedImages;
+
     return NextResponse.json({ images: finalImages });
   } catch (error) {
     console.error('갤러리 이미지 로드 오류:', error);
