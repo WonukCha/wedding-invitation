@@ -60,35 +60,10 @@ const GallerySection = ({ bgColor = 'white' }: GallerySectionProps) => {
   console.log('Gallery Layout from config:', weddingConfig.gallery.layout);
   
   useEffect(() => {
-    // API에서 갤러리 이미지 목록 가져오기
-    const fetchGalleryImages = async () => {
-      try {
-        setIsLoading(true);
-        const response = await fetch('/api/gallery');
-        
-        if (!response.ok) {
-          throw new Error('갤러리 이미지를 불러오는데 실패했습니다');
-        }
-        
-        const data = await response.json();
-        
-        if (data.images && data.images.length > 0) {
-          setImages(data.images);
-        } else {
-          // API에서 이미지를 가져오지 못한 경우 기본 설정 사용
-          setImages(weddingConfig.gallery.images);
-        }
-      } catch (err) {
-        console.error('갤러리 이미지 로드 오류:', err);
-        setError('이미지를 불러오는데 문제가 발생했습니다');
-        // 에러 발생 시 기본 설정 사용
-        setImages(weddingConfig.gallery.images);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    
-    fetchGalleryImages();
+    // GitHub Pages에서는 API 라우트가 작동하지 않으므로 config 직접 사용
+    setIsLoading(true);
+    setImages(weddingConfig.gallery.images);
+    setIsLoading(false);
   }, []);
   
   // 브라우저 뒤로가기 처리
