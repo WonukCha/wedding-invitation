@@ -65,4 +65,18 @@ a {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
+
+  /* 모든 이미지와 미디어 요소에 하드웨어 가속 적용 */
+  img, picture, video {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  /* 섹션 컨테이너들에 하드웨어 가속 적용 */
+  section, main, div[class*="Section"] {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
 }

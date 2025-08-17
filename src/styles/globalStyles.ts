@@ -25,15 +25,14 @@ export const GlobalStyle = createGlobalStyle`
     src: url('/wedding-invitation/fonts/MaruBuri-ExtraLight.ttf') format('truetype');
     font-weight: 200;
     font-style: normal;
-    font-display: block; /* 폰트 로딩될 때까지 텍스트를 보이지 않게 함 */
+    font-display: swap; /* 폰트 로딩 중에도 fallback 폰트로 텍스트 표시 */
   }
-
   @font-face {
     font-family: 'MaruBuri';
     src: url('/wedding-invitation/fonts/MaruBuri-Light.ttf') format('truetype');
     font-weight: 300;
     font-style: normal;
-    font-display: block;
+    font-display: swap;
   }
 
   @font-face {
@@ -41,7 +40,7 @@ export const GlobalStyle = createGlobalStyle`
     src: url('/wedding-invitation/fonts/MaruBuri-Regular.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
-    font-display: block;
+    font-display: swap;
   }
 
   @font-face {
@@ -49,7 +48,7 @@ export const GlobalStyle = createGlobalStyle`
     src: url('/wedding-invitation/fonts/MaruBuri-SemiBold.ttf') format('truetype');
     font-weight: 600;
     font-style: normal;
-    font-display: block;
+    font-display: swap;
   }
 
   @font-face {
@@ -57,7 +56,7 @@ export const GlobalStyle = createGlobalStyle`
     src: url('/wedding-invitation/fonts/MaruBuri-Bold.ttf') format('truetype');
     font-weight: 700;
     font-style: normal;
-    font-display: block;
+    font-display: swap;
   }
 
   @font-face {
@@ -65,7 +64,7 @@ export const GlobalStyle = createGlobalStyle`
     src: url('/wedding-invitation/fonts/PlayfairDisplay-Italic.ttf') format('truetype');
     font-weight: normal;
     font-style: italic;
-    font-display: block;
+    font-display: swap;
   }
   
   /* 컨텐츠가 바로 보이지만 폰트가 로드되면 레이아웃이 바뀌는 것을 방지 */

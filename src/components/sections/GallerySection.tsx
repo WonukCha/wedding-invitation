@@ -442,11 +442,23 @@ const GalleryImageWrapper = styled.div`
   position: relative;
   width: 100%;
   padding-bottom: 100%; /* 1:1 비율 (정사각형) */
+  background-color: #f5f5f5; /* 로딩 중 배경색 */
+  /* iOS 깜빡임 방지 */
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 `;
 
 const GalleryNextImage = styled(Image)`
   border-radius: 8px;
   transition: transform 0.3s;
+  /* iOS 깜빡임 방지 */
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  will-change: transform;
   
   &:hover {
     transform: scale(1.05);
@@ -583,7 +595,10 @@ const GalleryGridContainer = styled.div`
   max-width: 800px;
   margin: 2rem auto 0;
   padding: 0 1rem;
-  
+  /* iOS 깜빡임 방지 */
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+
   @media (max-width: 768px) {
     grid-template-columns: repeat(3, 1fr);
     gap: 0.5rem;
@@ -600,7 +615,12 @@ const GalleryGridCard = styled.div`
   cursor: pointer;
   position: relative;
   width: 100%;
-  
+  /* iOS 깜빡임 방지 */
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+
   &:hover {
     transform: translateY(-5px);
   }
@@ -610,6 +630,12 @@ const GalleryGridImageWrapper = styled.div`
   position: relative;
   width: 100%;
   padding-bottom: 100%; /* 1:1 비율 (정사각형) */
+  background-color: #f5f5f5; /* 로딩 중 배경색 */
+  /* iOS 깜빡임 방지 */
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 `;
 
 export default GallerySection; 

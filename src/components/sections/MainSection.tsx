@@ -52,6 +52,12 @@ const MainSectionContainer = styled.section`
   color: white;
   overflow: hidden;
   background: #f8f6f2;
+  /* iOS 깜빡임 방지 - 초기 로딩 최적화 */
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  will-change: transform;
 
   @media (min-width: 768px) and (min-height: 780px) {
     aspect-ratio: 9 / 16;
