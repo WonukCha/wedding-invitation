@@ -15,7 +15,7 @@ export const weddingConfig = {
   meta: {
     title: "차원욱 ❤️ 강혜미의 결혼식에 초대합니다",
     description: "결혼식 초대장",
-    ogImage: "/images/image_main_v3.jpg",
+    ogImage: "/wedding-invitation/images/image_main_v3.jpg",
     noIndex: true,
     _jwk_watermark_id: uniqueIdentifier,
   },
@@ -23,7 +23,7 @@ export const weddingConfig = {
   // 메인 화면
   main: {
     title: "Wedding Invitation",
-    image: "/images/image_main_v3.jpg",
+    image: "/wedding-invitation/images/image_main_v3.jpg",
     date: "2025년 11월 15일 토요일 18시 00분",
     venue: "AW 컨벤션 안산"
   },
@@ -69,27 +69,27 @@ export const weddingConfig = {
     layout: "grid" as GalleryLayout, // "scroll" 또는 "grid" 선택
     position: "bottom" as GalleryPosition, // "middle" (현재 위치) 또는 "bottom" (맨 하단) 선택
     images: [
-      "/images/gallery/image_01.jpg",
-      "/images/gallery/image_02.jpg",
-      "/images/gallery/image_03.jpg",
-      "/images/gallery/image_04.jpg",
-      "/images/gallery/image_05.jpg",
-      "/images/gallery/image_06.jpg",
-      "/images/gallery/image_07.jpg",
-      "/images/gallery/image_09.jpg",
-      "/images/gallery/image_13.jpg",
-      "/images/gallery/image_14.jpg",
-      "/images/gallery/image_15.jpg",
-      "/images/gallery/image_18.jpg",
-      "/images/gallery/image_19.jpg",
-      "/images/gallery/image_20.jpg",
-      "/images/gallery/image_21.jpg",
-      "/images/gallery/image_22.jpg",
-      "/images/gallery/image_23.jpg",
-      "/images/gallery/image_24.jpg",
-      "/images/gallery/image_25.jpg",
-      "/images/gallery/image_26.jpg",
-      "/images/gallery/image_27.jpg"
+      "/wedding-invitation/images/gallery/image_01.jpg",
+      "/wedding-invitation/images/gallery/image_02.jpg",
+      "/wedding-invitation/images/gallery/image_03.jpg",
+      "/wedding-invitation/images/gallery/image_04.jpg",
+      "/wedding-invitation/images/gallery/image_05.jpg",
+      "/wedding-invitation/images/gallery/image_06.jpg",
+      "/wedding-invitation/images/gallery/image_07.jpg",
+      "/wedding-invitation/images/gallery/image_09.jpg",
+      "/wedding-invitation/images/gallery/image_13.jpg",
+      "/wedding-invitation/images/gallery/image_14.jpg",
+      "/wedding-invitation/images/gallery/image_15.jpg",
+      "/wedding-invitation/images/gallery/image_18.jpg",
+      "/wedding-invitation/images/gallery/image_19.jpg",
+      "/wedding-invitation/images/gallery/image_20.jpg",
+      "/wedding-invitation/images/gallery/image_21.jpg",
+      "/wedding-invitation/images/gallery/image_22.jpg",
+      "/wedding-invitation/images/gallery/image_23.jpg",
+      "/wedding-invitation/images/gallery/image_24.jpg",
+      "/wedding-invitation/images/gallery/image_25.jpg",
+      "/wedding-invitation/images/gallery/image_26.jpg",
+      "/wedding-invitation/images/gallery/image_27.jpg"
     ],
   } as GalleryConfig,
 

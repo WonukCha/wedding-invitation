@@ -31,7 +31,7 @@ const VenueSection = ({ bgColor = 'white' }: VenueSectionProps) => {
   const renderStaticMap = () => {
     return (
       <StaticMapContainer>
-        <StaticMapImage src="/images/map/map.png" alt="AW 컨벤션 안산 위치" />
+        <StaticMapImage src="/wedding-invitation/images/map/map.png" alt="AW 컨벤션 안산 위치" />
       </StaticMapContainer>
     );
   };
