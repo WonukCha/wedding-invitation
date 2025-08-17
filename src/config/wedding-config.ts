@@ -80,16 +80,16 @@ export const weddingConfig = {
       "/wedding-invitation/images/gallery/image_13.jpg",
       "/wedding-invitation/images/gallery/image_14.jpg",
       "/wedding-invitation/images/gallery/image_15.jpg",
-      "/wedding-invitation/images/gallery/image_18.jpg",
-      "/wedding-invitation/images/gallery/image_19.jpg",
-      "/wedding-invitation/images/gallery/image_20.jpg",
+      "/wedding-invitation/images/gallery/image_18.JPG",
+      "/wedding-invitation/images/gallery/image_19.JPG",
+      "/wedding-invitation/images/gallery/image_20.JPG",
       "/wedding-invitation/images/gallery/image_21.jpg",
       "/wedding-invitation/images/gallery/image_22.jpg",
       "/wedding-invitation/images/gallery/image_23.jpg",
       "/wedding-invitation/images/gallery/image_24.jpg",
-      "/wedding-invitation/images/gallery/image_25.jpg",
-      "/wedding-invitation/images/gallery/image_26.jpg",
-      "/wedding-invitation/images/gallery/image_27.jpg"
+      "/wedding-invitation/images/gallery/image_25.JPG",
+      "/wedding-invitation/images/gallery/image_26.JPG",
+      "/wedding-invitation/images/gallery/image_27.JPG"
     ],
   } as GalleryConfig,
 
