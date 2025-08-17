@@ -17,6 +17,9 @@
 /.next/
 /out/
 
+# GitHub Pages
+gh-pages
+
 # production
 /build
 

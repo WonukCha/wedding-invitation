@@ -8,7 +8,9 @@
     "build": "next build",
     "build:fresh": "npm run prebuild && npm run build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "export": "next build && next export",
+    "deploy": "npm run build && touch out/.nojekyll && git add out/ && git commit -m \"Deploy to GitHub Pages\" && git subtree push --prefix out origin gh-pages"
   },
   "dependencies": {
     "framer-motion": "^12.12.1",

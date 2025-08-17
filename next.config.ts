@@ -1,11 +1,17 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
+  trailingSlash: true,
+  basePath: process.env.NODE_ENV === 'production' ? '/wedding-invitation' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/wedding-invitation/' : '',
+
   compiler: {
     styledComponents: true,
   },
-  
-  // 이미지 최적화 설정
+
+  // GitHub Pages용 이미지 최적화 설정
   images: {
+    unoptimized: true, // GitHub Pages에서는 이미지 최적화 비활성화
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
