@@ -6,7 +6,16 @@ const nextConfig = {
   assetPrefix: '/wedding-invitation/',
 
   compiler: {
-    styledComponents: true,
+    styledComponents: {
+      displayName: true,
+      ssr: true,
+      fileName: true,
+      topLevelImportPaths: [],
+      meaninglessFileNames: ['index', 'styles'],
+      minify: true,
+      transpileTemplateLiterals: true,
+      pure: false,
+    },
   },
 
   // GitHub Pages용 이미지 최적화 설정

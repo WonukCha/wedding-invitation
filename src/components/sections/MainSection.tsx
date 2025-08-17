@@ -65,6 +65,12 @@ const MainSectionContainer = styled.section`
 
 const BackgroundImage = styled(Image)`
   z-index: 0;
+  /* iOS 깜빡임 방지 */
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  will-change: transform;
 `;
 
 const Overlay = styled.div`
