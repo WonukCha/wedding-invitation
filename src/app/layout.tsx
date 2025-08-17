@@ -18,14 +18,14 @@ export default function RootLayout({
       <head>
         <link
           rel="preload"
-          href="/fonts/PlayfairDisplay-Italic.ttf" 
+          href="/wedding-invitation/fonts/PlayfairDisplay-Italic.ttf"
           as="font"
           type="font/ttf"
           crossOrigin="anonymous"
         />
         <link
           rel="preload"
-          href="/fonts/MaruBuri-Regular.ttf" 
+          href="/wedding-invitation/fonts/MaruBuri-Regular.ttf"
           as="font"
           type="font/ttf"
           crossOrigin="anonymous"
