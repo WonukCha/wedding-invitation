@@ -150,9 +150,30 @@ const GallerySection = ({ bgColor = 'white' }: GallerySectionProps) => {
     }
   };
 
+  // 썸네일 이미지 경로 생성
+  const getThumbnailPath = (imagePath: string) => {
+    const pathParts = imagePath.split('/');
+    const fileName = pathParts[pathParts.length - 1];
+    const nameWithoutExt = fileName.split('.')[0];
+    const ext = fileName.split('.')[1];
+    pathParts[pathParts.length - 1] = `${nameWithoutExt}_thumb.${ext}`;
+    return pathParts.join('/');
+  };
+
+  // 풀사이즈 이미지 경로 생성
+  const getFullsizePath = (imagePath: string) => {
+    const pathParts = imagePath.split('/');
+    const fileName = pathParts[pathParts.length - 1];
+    const nameWithoutExt = fileName.split('.')[0];
+    const ext = fileName.split('.')[1];
+    pathParts[pathParts.length - 1] = `${nameWithoutExt}_full.${ext}`;
+    return pathParts.join('/');
+  };
+
   const handleImageClick = (image: string) => {
     const imageIndex = images.indexOf(image);
-    setExpandedImage(image);
+    const fullsizeImage = getFullsizePath(image);
+    setExpandedImage(fullsizeImage); // 풀사이즈 이미지 사용
     setExpandedImageIndex(imageIndex);
     setIsExpandedImageLoading(true); // 이미지 로딩 시작
     // 확대 이미지가 표시될 때 스크롤 방지
@@ -162,8 +183,9 @@ const GallerySection = ({ bgColor = 'white' }: GallerySectionProps) => {
   const goToPreviousImage = () => {
     if (expandedImageIndex > 0) {
       const newIndex = expandedImageIndex - 1;
+      const fullsizeImage = getFullsizePath(images[newIndex]);
       setExpandedImageIndex(newIndex);
-      setExpandedImage(images[newIndex]);
+      setExpandedImage(fullsizeImage); // 풀사이즈 이미지 사용
       setIsExpandedImageLoading(true); // 새 이미지 로딩 시작
     }
   };
@@ -171,8 +193,9 @@ const GallerySection = ({ bgColor = 'white' }: GallerySectionProps) => {
   const goToNextImage = () => {
     if (expandedImageIndex < images.length - 1) {
       const newIndex = expandedImageIndex + 1;
+      const fullsizeImage = getFullsizePath(images[newIndex]);
       setExpandedImageIndex(newIndex);
-      setExpandedImage(images[newIndex]);
+      setExpandedImage(fullsizeImage); // 풀사이즈 이미지 사용
       setIsExpandedImageLoading(true); // 새 이미지 로딩 시작
     }
   };
@@ -270,23 +293,26 @@ const GallerySection = ({ bgColor = 'white' }: GallerySectionProps) => {
       {galleryLayout === 'grid' ? (
         // 그리드 레이아웃
         <GalleryGridContainer>
-          {images.map((image, index) => (
-            <GalleryGridCard key={index} onClick={() => handleImageClick(image)}>
-              <GalleryGridImageWrapper>
-                <GalleryNextImage 
-                  src={image}
-                  alt={`웨딩 갤러리 이미지 ${index + 1}`}
-                  fill
-                  sizes="(max-width: 768px) calc(33.333vw - 1rem), calc(33.333vw - 2rem)"
-                  quality={85}
-                  priority={index < 6}
-                  style={{ objectFit: 'cover' }}
-                  draggable={false}
-                  onContextMenu={e => e.preventDefault()}
-                />
-              </GalleryGridImageWrapper>
-            </GalleryGridCard>
-          ))}
+          {images.map((image, index) => {
+            const thumbnailSrc = getThumbnailPath(image);
+            return (
+              <GalleryGridCard key={index} onClick={() => handleImageClick(image)}>
+                <GalleryGridImageWrapper>
+                  <GalleryNextImage
+                    src={thumbnailSrc}
+                    alt={`웨딩 갤러리 이미지 ${index + 1}`}
+                    fill
+                    sizes="(max-width: 768px) calc(33.333vw - 1rem), calc(33.333vw - 2rem)"
+                    quality={85}
+                    priority={index < 6}
+                    style={{ objectFit: 'cover' }}
+                    draggable={false}
+                    onContextMenu={e => e.preventDefault()}
+                  />
+                </GalleryGridImageWrapper>
+              </GalleryGridCard>
+            );
+          })}
         </GalleryGridContainer>
       ) : (
         // 스크롤 레이아웃 (기존)
@@ -296,23 +322,26 @@ const GallerySection = ({ bgColor = 'white' }: GallerySectionProps) => {
           </GalleryButton>
           
           <GalleryScrollContainer ref={scrollContainerRef}>
-            {images.map((image, index) => (
-              <GalleryCard key={index} onClick={() => handleImageClick(image)}>
-                <GalleryImageWrapper>
-                  <GalleryNextImage 
-                    src={image}
-                    alt={`웨딩 갤러리 이미지 ${index + 1}`}
-                    fill
-                    sizes="(max-width: 768px) 250px, 300px"
-                    quality={85}
-                    priority={index < 3}
-                    style={{ objectFit: 'cover' }}
-                    draggable={false}
-                    onContextMenu={e => e.preventDefault()}
-                  />
-                </GalleryImageWrapper>
-              </GalleryCard>
-            ))}
+            {images.map((image, index) => {
+              const thumbnailSrc = getThumbnailPath(image);
+              return (
+                <GalleryCard key={index} onClick={() => handleImageClick(image)}>
+                  <GalleryImageWrapper>
+                    <GalleryNextImage
+                      src={thumbnailSrc}
+                      alt={`웨딩 갤러리 이미지 ${index + 1}`}
+                      fill
+                      sizes="(max-width: 768px) 250px, 300px"
+                      quality={85}
+                      priority={index < 3}
+                      style={{ objectFit: 'cover' }}
+                      draggable={false}
+                      onContextMenu={e => e.preventDefault()}
+                    />
+                  </GalleryImageWrapper>
+                </GalleryCard>
+              );
+            })}
           </GalleryScrollContainer>
           
           <GalleryButton onClick={scrollRight} aria-label="다음 이미지들" className="right-button">
