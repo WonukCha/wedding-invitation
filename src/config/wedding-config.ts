@@ -25,7 +25,7 @@ export const weddingConfig = {
     title: "Wedding Invitation",
     image: "/wedding-invitation/images/image_main_v3.jpg",
     date: "2025년 11월 15일 토요일 18시 00분",
-    venue: "AW 컨벤션 안산"
+    venue: "AW 컨벤션 안산 3층 그랜드볼룸"
   },
 
   // 소개글
@@ -46,8 +46,8 @@ export const weddingConfig = {
 
   // 장소 정보
   venue: {
-    name: "AW 컨벤션 안산 3층 그랜드볼룸",
-    address: "경기도 안산시 단원구 광덕1로 171",
+    name: "AW 컨벤션 안산",
+    address: "경기도 안산시 단원구 광덕1로 171 AW 컨벤션 안산 3층 그랜드볼룸",
     tel: "031-501-5900",
     naverMapId: "AW컨벤션안산", // 네이버 지도 검색용 장소명
     coordinates: {
